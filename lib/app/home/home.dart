@@ -4,6 +4,7 @@ import'package:tp3/app/hiragana/hiragana.dart';
 import'package:tp3/app/model/cardModel.dart';
 import 'package:tp3/app/gridWidget.dart';
 import 'package:tp3/app/cardWidget.dart';
+import 'package:tp3/app/training/trainingWidget.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class _HomeState extends State<Home> {
   final List<Widget> _widgetList = new List<Widget>();
   final List<CardWidget> _cardWidgetList = new List<CardWidget>();
   final List<CardModel> _listCardModel = new List<CardModel>();
+  TrainingWidget _trainingWidget;
   GridWidget _gridWidget;
   int _currentPageIndex =0;
   var _hiragana_dictionnary = Hiraganas;
@@ -31,8 +33,9 @@ class _HomeState extends State<Home> {
     _hiragana_dictionnary.forEach((symbol,translation) => _listCardModel.add(new CardModel(symbol: symbol, translation: translation)));
     _listCardModel.forEach((cardModel) =>_cardWidgetList.add(new CardWidget(cardModel: cardModel,)));
     _gridWidget = new GridWidget(widgetList: _cardWidgetList);
+    _trainingWidget = new TrainingWidget(_listCardModel);
     _widgetList.add(_gridWidget);
-    _widgetList.add(new CardWidget(cardModel: new CardModel(symbol: "T", translation: ""),));
+    _widgetList.add(_trainingWidget);
 
 
     return Scaffold(
