@@ -5,6 +5,8 @@ import'package:tp3/app/model/cardModel.dart';
 import 'package:tp3/app/gridWidget.dart';
 import 'package:tp3/app/cardWidget.dart';
 import 'package:tp3/app/training/trainingWidget.dart';
+import 'package:tp3/util/strings.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -49,11 +51,11 @@ class _HomeState extends State<Home> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.book),
-              title: Text("Apprendre"),
+              title: Text(strings.learn),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.create),
-              title: Text("Entrainement"),
+              title: Text(strings.train),
             )
           ],
         ),
